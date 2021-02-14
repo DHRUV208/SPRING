@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true" xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	    
+    <!-- define the dependency -->
+    
+    <!-- Define your beans here -->
+    <bean id="constructor" lazy-init="true" 
+    class="com.ncu.CI.Baseball"/>
+ 	<bean id="myBCoach" 
+ 		class="com.ncu.CI.Baseball" scope="prototype"
+ 		init-method="Setup"
+ 		destroy-method="Cleanup">
+ 		
+ 		<constructor-arg name="name" value="dhruv"/>
+ 		<constructor-arg name="age" value="19"/>
+ 		<constructor-arg ref="fortune"/>
+ 		
+   	</bean>
+   	 	
+  	<bean id="fortune" 
+ 		class="com.ncu.CI.Fortune"/>	
+ 		
+    	
+  	
+  	
+  	
+  
+  	
+    
+</beans>
